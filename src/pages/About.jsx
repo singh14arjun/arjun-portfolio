@@ -37,7 +37,7 @@ export const About = () => {
             Hi, I'm Arjun,
             <br />
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-              a React Developer
+              Full Stack Java Developer
             </span>
           </h1>
 
@@ -62,17 +62,19 @@ export const About = () => {
               </button>
             </a>
 
-            <button
-              className="flex items-center gap-2 
-          border border-cyan-400/40 
-          text-cyan-300 px-6 py-3 rounded-lg
-          bg-cyan-500/5
-          hover:bg-cyan-500/10
-          hover:shadow-[0_0_15px_#22d3ee]
-          transition duration-300"
-            >
-              Download CV <GoDownload />
-            </button>
+            <a href="/Arjun (1).pdf" download="Arjun (1).pdf">
+              <button
+                className="flex items-center gap-2 
+            border border-cyan-400/40 
+            text-cyan-300 px-6 py-3 rounded-lg
+            bg-cyan-500/5
+            hover:bg-cyan-500/10
+            hover:shadow-[0_0_15px_#22d3ee]
+            transition duration-300"
+              >
+                Download CV <GoDownload />
+              </button>
+            </a>
           </div>
         </div>
 
@@ -86,7 +88,7 @@ export const About = () => {
           <img
             src={photo}
             alt="arjun_singh"
-            className="relative w-80 md:w-96 rounded-2xl 
+            className="relative w-50 sm:w-80 md:w-96 rounded-2xl 
         border border-cyan-500/30
         shadow-[0_0_30px_rgba(34,211,238,0.25)]
         hover:scale-105 transition duration-500"

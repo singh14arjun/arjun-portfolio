@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { BsEye } from "react-icons/bs";
@@ -6,6 +7,19 @@ import { personalProjectData } from "../data/projectsData";
 import { techData } from "../data/projectsData";
 
 export function Projects() {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (imgSrc) => {
+    setSelectedImage(imgSrc);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="py-20 text-white" id="projects">
       <div className="flex flex-col gap-10">
@@ -24,15 +38,16 @@ export function Projects() {
             React, focusing on user experience, scalability, and clean code.
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 py-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-6">
             {projectData.map((project, index) => {
               const items = project.images.map((img, i) => (
                 <img
                   key={i}
                   src={img}
                   alt={project.title}
+                  onClick={() => openModal(img)}
                   className="w-full h-56 object-cover rounded-t-xl 
-          group-hover:scale-105 transition duration-500"
+          group-hover:scale-105 transition duration-500 mx-auto cursor-pointer"
                 />
               ));
 
@@ -61,7 +76,7 @@ export function Projects() {
                     />
                   </div>
 
-                  <div className="p-5 flex flex-col gap-4">
+                  <div className="p-5 flex flex-col gap-4 border-t border-white/10">
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((t, i) => (
                         <span
@@ -129,15 +144,16 @@ export function Projects() {
           </div>
 
           <div>
-            <div className="grid lg:grid-cols-3 gap-8 py-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 py-6">
               {personalProjectData.map((project, index) => {
                 const items = project.images.map((img, i) => (
                   <img
                     key={i}
                     src={img}
                     alt={project.title}
+                    onClick={() => openModal(img)}
                     className="w-full h-56 object-cover rounded-t-xl 
-            group-hover:scale-105 transition duration-500"
+            group-hover:scale-105 transition duration-500 cursor-pointer"
                   />
                 ));
 
@@ -230,7 +246,8 @@ export function Projects() {
         className="border p-6 flex flex-col gap-5 rounded-2xl 
 border-white/20 
 bg-gradient-to-br from-[#0f172a] via-[#020617] to-[#0f172a]
-shadow-[0_0_40px_rgba(0,255,255,0.08)]"
+shadow-[0_0_40px_rgba(0,255,255,0.08)] pt-20"
+        id="skills"
       >
         <div
           className="text-center text-4xl font-bold 
@@ -333,6 +350,32 @@ shadow-[0_0_40px_rgba(0,255,255,0.08)]"
           </div>
         </div>
       </div>
+
+      {/* Image Modal for Full Screen View */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-8"
+          onClick={closeModal}
+        >
+          <div className="relative w-full max-w-6xl h-full flex items-center justify-center">
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 md:top-4 md:right-4 text-white/70 hover:text-white bg-black/50 hover:bg-black/80 rounded-full p-2 transition-all duration-300 border border-white/10 hover:border-white/30 z-[101]"
+              title="Close"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <img
+              src={selectedImage}
+              alt="Full size project view"
+              className="max-w-full max-h-[90vh] object-contain rounded-xl shadow-[0_0_50px_rgba(34,211,238,0.15)] ring-1 ring-cyan-500/20"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
