@@ -32,19 +32,17 @@ export const About = () => {
               Available for new projects
             </span>
           </div>
-
           <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white">
             Hi, I'm Arjun,
             <br />
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-              Full Stack Java Developer
+              Full Stack Developer
             </span>
           </h1>
 
           <p className="text-gray-400 text-lg leading-relaxed">
-            Specialized in building high-performance, scalable web applications
-            with cutting-edge technologies. Expert in React, Next.js,
-            TypeScript, and modern UI frameworks.
+            With 2 years of experience crafting dynamic, high-performance UIs in React, I am now expanding my focus to the backend. I'm actively seeking opportunities to leverage my frontend expertise alongside Java and Spring Boot to build robust, scalable full-stack applications.
+
           </p>
 
           <div className="flex gap-4 pt-4">
@@ -62,7 +60,7 @@ export const About = () => {
               </button>
             </a>
 
-            <a href="/Arjun (1).pdf" download="Arjun (1).pdf">
+            <a href="/Arjun_Singh_Resume.pdf" download="Arjun_Singh_Resume.pdf">
               <button
                 className="flex items-center gap-2 
             border border-cyan-400/40 

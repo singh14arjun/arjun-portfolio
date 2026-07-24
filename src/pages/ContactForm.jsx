@@ -18,8 +18,18 @@ const ContactForm = ({ open, setOpen }) => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    if (!form.name || !form.email || !form.message) {
-      toast.error("Please fill all fields");
+    if (!form.name) {
+      toast.error("Please enter your name");
+      return;
+    }
+
+    if (!form.email) {
+      toast.error("Please enter your email");
+      return;
+    }
+
+    if (!form.message) {
+      toast.error("Please enter your message");
       return;
     }
 
@@ -119,6 +129,7 @@ const ContactForm = ({ open, setOpen }) => {
             hover:border-cyan-400
             hover:shadow-[0_0_10px_#22d3ee]
             transition
+            cursor-pointer
             "
           >
             Close
@@ -134,6 +145,7 @@ const ContactForm = ({ open, setOpen }) => {
             shadow-[0_0_15px_#22d3ee]
             hover:shadow-[0_0_25px_#22d3ee]
             transition
+            cursor-pointer
             "
           >
             {loading ? "Sending..." : "Send"}

@@ -48,7 +48,7 @@ export const certificationData = [
   },
   {
     courseName: "React JS",
-    institution: "Naresh IT",
+    institution: "Naresh IT, Hyderabad",
     duration: "2 months",
     mode: "Online",
     year: "2024",

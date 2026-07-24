@@ -2,11 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { HiCode } from "react-icons/hi";
 
-const NavBar = ({ setOpen }) => {
+const NavBar = ({ setOpen, navigateToSection }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef(null); // Ref for the mobile menu
+  const [activeSection, setActiveSection] = useState("");
+  const menuRef = useRef(null);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -25,6 +25,32 @@ const NavBar = ({ setOpen }) => {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const handleScrollSpy = () => {
+      const sections = ["about", "experience", "projects", "education", "contact"];
+      let currentSection = "";
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= window.innerHeight / 3 && rect.bottom >= window.innerHeight / 3) {
+            currentSection = section;
+          }
+        }
+      }
+
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
+    handleScrollSpy();
+
+    return () => window.removeEventListener("scroll", handleScrollSpy);
+  }, []);
+
   return (
     <nav
       className="fixed top-0 left-0 w-full z-50
@@ -33,7 +59,7 @@ const NavBar = ({ setOpen }) => {
         shadow-[0_0_20px_rgba(34,211,238,0.2)]
         transition-all duration-300"
     >
-      <div className="flex items-center justify-between px-6 md:px-10 py-4">
+      <div className="flex items-center justify-between px-6 md:px-20 py-4">
         <a href="#" className="flex items-center gap-2">
           <HiCode className="text-blue-500 text-2xl" />
           <span className="font-bold text-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
@@ -41,20 +67,31 @@ const NavBar = ({ setOpen }) => {
           </span>
         </a>
 
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <ul className="flex gap-6">
             {["About", "Experience", "Projects", "Education", "Contact"].map(
-              (item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="text-gray-400 hover:text-cyan-400 hover:drop-shadow-[0_0_8px_#22d3ee] transition duration-300"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ),
+              (item) => {
+                const isActive = activeSection === item.toLowerCase();
+                return (
+                  <li key={item}>
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (navigateToSection) {
+                          navigateToSection(item.toLowerCase());
+                        }
+                      }}
+                      className={`transition duration-300 ${isActive
+                        ? "text-cyan-400 drop-shadow-[0_0_8px_#22d3ee]"
+                        : "text-gray-400 hover:text-cyan-400 hover:drop-shadow-[0_0_8px_#22d3ee]"
+                        }`}
+                    >
+                      {item}
+                    </a>
+                  </li>
+                );
+              }
             )}
           </ul>
 
@@ -66,7 +103,6 @@ const NavBar = ({ setOpen }) => {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-black dark:text-white text-2xl"
@@ -75,7 +111,6 @@ const NavBar = ({ setOpen }) => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div
           ref={menuRef}
@@ -83,17 +118,29 @@ const NavBar = ({ setOpen }) => {
         >
           <ul className="flex flex-col gap-5 p-6">
             {["About", "Experience", "Projects", "Education", "Contact"].map(
-              (item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    onClick={() => setMenuOpen(false)}
-                    className="text-gray-300 hover:text-cyan-400 hover:drop-shadow-[0_0_10px_#22d3ee] transition duration-300"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ),
+              (item) => {
+                const isActive = activeSection === item.toLowerCase();
+                return (
+                  <li key={item}>
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setMenuOpen(false);
+                        if (navigateToSection) {
+                          navigateToSection(item.toLowerCase());
+                        }
+                      }}
+                      className={`block w-full transition duration-300 ${isActive
+                        ? "text-cyan-400 drop-shadow-[0_0_10px_#22d3ee]"
+                        : "text-gray-300 hover:text-cyan-400 hover:drop-shadow-[0_0_10px_#22d3ee]"
+                        }`}
+                    >
+                      {item}
+                    </a>
+                  </li>
+                );
+              }
             )}
 
             <button

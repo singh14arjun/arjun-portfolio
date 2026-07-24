@@ -4,7 +4,7 @@ import { MdWork } from "react-icons/md";
 const expData = [
   {
     id: 1,
-    dateOfJoin: "August 2024",
+    dateOfJoin: "May 2025",
     dateOfCompleted: "Present",
     companyName: "Bepoj Technology",
     role: "React Developer",
@@ -12,18 +12,10 @@ const expData = [
   },
   {
     id: 2,
-    dateOfJoin: "August 2024",
-    dateOfCompleted: "August 2025",
-    companyName: "Bepoj Technology",
-    role: "React Developer",
-    description: "Worked on more than 5 production-level projects",
-  },
-  {
-    id: 3,
     dateOfJoin: "January 2024",
-    dateOfCompleted: "August 2024",
+    dateOfCompleted: "May 2024",
     companyName: "Bepoj Technology",
-    role: "Web Internship",
+    role: "Web Development Internship",
     description: "Built small frontend projects using HTML, CSS, and React",
   },
 ];
@@ -51,11 +43,10 @@ export default function Experience() {
             <div
               className={`z-10 flex items-center justify-center w-10 h-10 rounded-full text-white
           shadow-lg
-          ${
-            exp.dateOfCompleted === "Present"
-              ? "bg-gradient-to-r from-gray-500 to-gray-700 shadow-[0_0_10px_gray]"
-              : "bg-gradient-to-r from-cyan-500 to-blue-600 shadow-[0_0_12px_#22d3ee]"
-          }`}
+          ${exp.dateOfCompleted === "Present"
+                  ? "bg-gradient-to-r from-gray-500 to-gray-700 shadow-[0_0_10px_gray]"
+                  : "bg-gradient-to-r from-cyan-500 to-blue-600 shadow-[0_0_12px_#22d3ee]"
+                }`}
             >
               <MdWork />
             </div>

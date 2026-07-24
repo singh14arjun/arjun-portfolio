@@ -25,8 +25,9 @@ const Footer = ({ setOpen }) => {
             </div>
 
             <div className="text-gray-400 max-w-xl">
-              Currently available for React development projects and full-time
-              opportunities. Reach out to discuss your next big idea.
+              <p className="text-gray-400 text-lg leading-relaxed">
+                Open to full-time roles and freelance projects specializing in React and Java Spring Boot. Let's connect and build something great together.
+              </p>
             </div>
 
             <div
@@ -34,9 +35,9 @@ const Footer = ({ setOpen }) => {
       text-white font-bold px-6 py-2 rounded-lg 
       shadow-[0_0_15px_#22d3ee] 
       hover:shadow-[0_0_25px_#22d3ee] 
-      hover:scale-105 transition duration-300 cursor-pointer"
+      hover:scale-105 transition duration-300 "
             >
-              <button onClick={() => setOpen(true)}>Get in Touch</button>
+              <button onClick={() => setOpen(true)} className="cursor-pointer">Get in Touch</button>
             </div>
           </div>
         </div>
@@ -52,9 +53,8 @@ const Footer = ({ setOpen }) => {
             </a>
 
             <div className="text-gray-400 leading-relaxed">
-              React Developer specializing in building high-performance web
-              applications with modern technologies and clean, maintainable
-              codebases. Focused on user experience and scalable architecture.
+              I am a results-driven Full Stack Developer with 2 years of experience specializing in building dynamic, high-performance web applications. My expertise spans the complete development lifecycle, from crafting seamless user interfaces with React to architecting robust backend systems using Java and Spring Boot.
+
             </div>
           </div>
 
@@ -98,10 +98,10 @@ const Footer = ({ setOpen }) => {
             </div>
 
             <div className="flex flex-col gap-2 text-gray-400">
-              <div className="flex gap-2 items-center hover:text-cyan-400 transition cursor-pointer">
+              {/* <div className="flex gap-2 items-center hover:text-cyan-400 transition cursor-pointer">
                 <IoCallSharp className="text-lg" />
                 <span>3733333</span>
-              </div>
+              </div> */}
 
               <a
                 href="mailto:arjun2314singh@gmail.com?subject=Portfolio Contact&body=Hello Arjun,"
@@ -115,7 +115,7 @@ const Footer = ({ setOpen }) => {
         </div>
 
         <footer
-          className="p-6 md:px-10 rounded-br-xl rounded-bl-xl border-t border-cyan-500/20"
+          className="p-6 md:px-20 rounded-br-xl rounded-bl-xl border-t border-cyan-500/20"
           id="contact"
         >
           <div className="flex flex-col sm:flex-col md:flex-row justify-between items-center text-gray-400 gap-2 sm:gap-3">

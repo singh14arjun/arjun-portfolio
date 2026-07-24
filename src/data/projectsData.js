@@ -16,8 +16,12 @@ import arjun4 from "../assets/arjun (4).png";
 import genvite1 from "../assets/genvite (1).png";
 import genvite2 from "../assets/genvite (2).png";
 import genvite3 from "../assets/genvite (3).png";
+import { TbBrandOauth } from "react-icons/tb";
+import { SiOracle, SiPostgresql, SiMongodb } from "react-icons/si";
+import { FaDatabase } from "react-icons/fa";
 
-import { SiSpringboot, SiSpring } from "react-icons/si";
+
+import { SiSpringboot, SiSpring, SiBitbucket, SiJira, SiPostman, SiDocker, SiHibernate, SiMysql, SiApachemaven, SiGradle, SiSpringsecurity, SiMui, SiRedux } from "react-icons/si";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -25,22 +29,19 @@ import {
   FaReact,
   FaBootstrap,
   FaGit,
+  FaGithub,
 } from "react-icons/fa";
 import { SiTailwindcss, SiFigma } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
+import { BsFiletypeScss } from "react-icons/bs";
+import { BiLogoTypescript } from "react-icons/bi";
+
 export const projectData = [
   {
     title: "Nesiyatova",
     url: "https://app.nesiyatova.com",
     images: [nesiya1, nesiya2, nesiya3],
     tech: ["HTML", "CSS", "JavaScript", "React", "SCSS"],
-    details: "",
-  },
-  {
-    title: "Nesiyatova App",
-    url: "https://play.google.com/store/apps/details?id=com.NesiyaTova&hl=en_IN",
-    images: [nesiyaapp1, nesiyaapp2, nesiyaapp3],
-    tech: ["HTML", "CSS", "JavaScript", "React Native", "SCSS"],
     details: "",
   },
   {
@@ -53,24 +54,6 @@ export const projectData = [
 ];
 
 export const personalProjectData = [
-  {
-    title: "Task Manager",
-    url: "",
-    images: [],
-    tech: ["JavaScript", "React", "Tailwind CSS", "Java", "Spring Boot"],
-    details:
-      "A full-stack task management application that allows users to create, update, and track daily tasks. Features include user authentication, task status updates, and responsive UI built with React and Tailwind CSS, with a Java Spring Boot backend.",
-  },
-
-  {
-    title: "Door Fuel",
-    url: "",
-    images: [],
-    tech: ["JavaScript", "React", "Tailwind CSS", "Java", "Spring Boot"],
-    details:
-      "A fuel delivery web application that allows users to request fuel directly to their location. Includes features like order management, user login, and service tracking with a modern responsive frontend and REST API backend.",
-  },
-
   {
     title: "Portfolio",
     url: "https://arjun-portfolio-xi.vercel.app/",
@@ -104,6 +87,53 @@ export const techData = {
       name: "Spring Framework",
       icon: SiSpring,
     },
+    {
+      name: "Hibernate",
+      icon: SiHibernate,
+    },
+    {
+      name: "Maven",
+      icon: SiApachemaven,
+    },
+    {
+      name: "Gradle",
+      icon: SiGradle,
+    },
+    {
+      name: "Spring Security",
+      icon: SiSpringsecurity,
+    },
+    {
+      name: "OAuth",
+      icon: TbBrandOauth,
+    },
+    {
+      name: "Microservices",
+      icon: SiSpringboot,
+    }
+  ],
+
+  database: [
+    {
+      name: "Oracle",
+      icon: SiOracle,
+    },
+    {
+      name: "MySQL",
+      icon: SiMysql,
+    },
+    {
+      name: "PostgreSQL",
+      icon: SiPostgresql,
+    },
+    {
+      name: "SQL",
+      icon: FaDatabase,
+    },
+    {
+      name: "MongoDB",
+      icon: SiMongodb,
+    }
   ],
 
   frontend: [
@@ -116,12 +146,24 @@ export const techData = {
       icon: FaCss3Alt,
     },
     {
+      name: "SCSS",
+      icon: BsFiletypeScss,
+    },
+    {
       name: "JavaScript",
       icon: FaJs,
     },
     {
+      name: "TypeScript",
+      icon: BiLogoTypescript,
+    },
+    {
       name: "React",
       icon: FaReact,
+    },
+    {
+      name: "Redux",
+      icon: SiRedux,
     },
     {
       name: "Tailwind CSS",
@@ -131,6 +173,10 @@ export const techData = {
       name: "Bootstrap",
       icon: FaBootstrap,
     },
+    {
+      name: "MUI",
+      icon: SiMui,
+    }
   ],
 
   tools: [
@@ -146,5 +192,25 @@ export const techData = {
       name: "Git",
       icon: FaGit,
     },
+    {
+      name: "GitHub",
+      icon: FaGithub,
+    },
+    {
+      name: "Postman",
+      icon: SiPostman,
+    },
+    {
+      name: "Jira",
+      icon: SiJira,
+    },
+    {
+      name: "Bitbucket",
+      icon: SiBitbucket,
+    },
+    {
+      name: "Docker",
+      icon: SiDocker,
+    }
   ],
 };
